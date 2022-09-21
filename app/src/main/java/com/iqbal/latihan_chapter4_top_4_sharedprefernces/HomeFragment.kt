@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment() {
 
     lateinit var binding : FragmentHomeBinding
-    lateinit var sharedprefer : SharedPreferences
+    lateinit var sharedPreferces : SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +30,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedprefer =  requireActivity().getSharedPreferences("Userdata",Context.MODE_PRIVATE)
-        textuserName.setText(sharedprefer.getString("namaLengkap","anda"))
+        sharedPreferces =  requireActivity().getSharedPreferences("Userdata",Context.MODE_PRIVATE)
+        textuserName.setText(sharedPreferces.getString("namaLengkap","anda"))
 
         btnlogout.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_loginFragment)

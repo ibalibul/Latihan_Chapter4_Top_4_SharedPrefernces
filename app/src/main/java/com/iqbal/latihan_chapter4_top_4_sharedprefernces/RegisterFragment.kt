@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_register.*
 class RegisterFragment : Fragment() {
 
     lateinit var binding : FragmentRegisterBinding
-    lateinit var sharedPref : SharedPreferences
+    lateinit var sharedPreferces : SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +32,7 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedPref = requireActivity().getSharedPreferences("Userdata",Context.MODE_PRIVATE)
+        sharedPreferces = requireActivity().getSharedPreferences("Userdata",Context.MODE_PRIVATE)
 
         btnRegister.setOnClickListener{
             var getUsername = binding.etUserName.text.toString()
@@ -41,7 +41,7 @@ class RegisterFragment : Fragment() {
             var getReapeatpass = binding.etRepeatPassword.text.toString()
 
             if(getPassword.equals(getReapeatpass)){
-                var addUser = sharedPref.edit()
+                var addUser = sharedPreferces.edit()
                 addUser.putString("username", getUsername)
                 addUser.putString("fullname", getFullname)
                 addUser.putString("password", getPassword)
@@ -51,8 +51,8 @@ class RegisterFragment : Fragment() {
 
             else Toast.makeText(context, "Password Invalid!", Toast.LENGTH_SHORT).show()
         }
-        tvregister.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment)
+        Register.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_loginFragment)
         }
     }
 }

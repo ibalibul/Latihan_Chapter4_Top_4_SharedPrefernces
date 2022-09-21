@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_login.*
 class LoginFragment : Fragment() {
 
     lateinit var binding : FragmentLoginBinding
-    lateinit var sharedpfre : SharedPreferences
+    lateinit var sharedPreferces : SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +31,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedpfre =  requireActivity().getSharedPreferences("Userdata", Context.MODE_PRIVATE)
+        sharedPreferces =  requireActivity().getSharedPreferences("Userdata", Context.MODE_PRIVATE)
 
 
         btnlogin.setOnClickListener{
@@ -39,8 +39,8 @@ class LoginFragment : Fragment() {
             var inputPass = binding.etPassword.text.toString()
 
 
-            var userName = sharedpfre.getString("username","")
-            var password = sharedpfre.getString("password","")
+            var userName = sharedPreferces.getString("username","")
+            var password = sharedPreferces.getString("password","")
 
             if(inputUsername.equals("") || inputPass.equals("")){
                 Toast.makeText(context, "Fill In Username and Password!", Toast.LENGTH_SHORT).show()

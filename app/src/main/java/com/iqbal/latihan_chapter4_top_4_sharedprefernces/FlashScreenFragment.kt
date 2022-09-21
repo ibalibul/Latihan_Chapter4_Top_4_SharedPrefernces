@@ -33,12 +33,12 @@ class FlashScreenFragment : Fragment() {
 
 //        Untuk memanggil SharedP
         sharedPreferces = requireActivity().getSharedPreferences("Userdata", Context.MODE_PRIVATE)
-        var datauser = sharedPreferces.getString("username","")
+        var datauser = sharedPreferces.getString("username", "")
 
         if (datauser !=  ""){
         var namalengkap = sharedPreferces.getString("namaLengkap","anda")
         var bundle = Bundle()
-        bundle.putString("namaLengkpa",namalengkap)
+        bundle.putString("namaLengkap",namalengkap)
 
             Handler().postDelayed({
                 Navigation.findNavController(view).navigate(R.id.action_flashScreenFragment_to_homeFragment, bundle)
